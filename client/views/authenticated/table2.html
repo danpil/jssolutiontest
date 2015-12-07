@@ -1,0 +1,37 @@
+<template name="table2">
+  {{#if venues}}
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <p><strong>{{quantity}} venues</strong></p>
+      </div>
+      <div class="col-xs-6 col-md-6">
+        <button type="button" class="btn btn-primary pull-right export-csv">Export CSV</button>
+      </div>
+    </div>
+    <br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>City</td>
+          <td>Street</td>
+          <td>Distance</td>
+          <td>Latitude</td>
+          <td>Longitude</td>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each venues}}
+            <tr>
+              <td>{{this.venueName}}</td>
+              <td>{{this.city}}</td>
+              <td>{{this.street}}</td>
+              <td>{{this.distance}} km</td>
+              <td>{{this.lat}}</td>
+              <td>{{this.lng}}</td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+</template>

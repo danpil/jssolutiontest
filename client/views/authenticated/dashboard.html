@@ -1,0 +1,28 @@
+<template name="dashboard">
+  {{> bertAlert}}
+  {{#if requests}}
+  <table class="table">
+    <tbody>
+      {{#each requests}}
+        <tr class="request" data-id="{{this._id}}">
+          <td><a href="#" data-id="{{this._id}}"><i class="fa fa-trash"></i></a></td>
+          <td>{{this.search}}</td>
+          <td>{{this.lat}}</td>
+          <td>{{this.lng}}</td>
+          <td>{{this.date}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+  <div class="form-group">
+    <label for="inputSearch">Enter search</label>
+    <input type="text" class="form-control" id="inputSearch" placeholder="Search">
+  </div>
+  <br>
+  <div class="map-container">
+    {{> googleMap name="map" options=mapOptions}}
+  </div>
+  <br>
+  {{> table2}}
+</template>
